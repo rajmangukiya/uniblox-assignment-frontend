@@ -23,6 +23,9 @@ const Home = () => {
                     quantity: p.quantity,
                     totalPrice: p.product.price * p.quantity,
                 })),
+                totalAmountAfterDiscount: order.totalAmountAfterDiscount,
+                discountAmount: order.discountAmount,
+                couponCode: order.couponCode,
             })))
             
             // setOrders(data.orders)

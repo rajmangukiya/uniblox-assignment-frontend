@@ -11,5 +11,7 @@ export type OrderProduct = {
 export type Order = {
     id: string;
     products: OrderProduct[];
-    totalPrice: number;
+    totalAmountAfterDiscount: number;
+    discountAmount: number;
+    couponCode: string | null;
 }

@@ -11,7 +11,10 @@ const Ordercard = ({ order }: { order: Order }) => {
                     <OrderProductCard key={product.id} product={product} />
                 ))
             }
-        
+            <p className='text-sm text-gray-500'>Total Amount: Rs {order.products.reduce((acc, product) => acc + product.price * product.quantity, 0)}</p>
+            <p className='text-sm text-gray-500'>Total Amount After Discount: Rs {order.totalAmountAfterDiscount}</p>
+            <p className='text-sm text-gray-500'>Discount Amount: Rs {order.discountAmount}</p>
+            <p className='text-sm text-gray-500'>Coupon Code: {order.couponCode}</p>
         </div>
     )
 }
