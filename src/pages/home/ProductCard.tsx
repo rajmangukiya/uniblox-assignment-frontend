@@ -13,9 +13,9 @@ const ProductCard = ({ product, handleAddToCart }: { product: Product, handleAdd
         <p className='text-sm text-gray-500'>{product.updatedAt}</p> */}
         {
             product.isInCart ? (
-                <button className='bg-red-500 text-white px-4 py-2 rounded-md' onClick={() => handleAddToCart(product.id, 0)}>Remove from Cart</button>
+                <button className='bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer' onClick={() => handleAddToCart(product.id, 0)}>Remove from Cart</button>
             ) : (
-                <button className='bg-blue-500 text-white px-4 py-2 rounded-md' onClick={() => handleAddToCart(product.id, 1)}>Add to Cart</button>
+                <button className='bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer' onClick={() => handleAddToCart(product.id, 1)}>Add to Cart</button>
             )
         }
         </div>

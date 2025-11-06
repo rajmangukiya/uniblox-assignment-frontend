@@ -13,10 +13,10 @@ const CartProductCard = ({ product, handleUpdateCart }: { product: CartProduct, 
         <p className='text-sm text-gray-500'>{product.updatedAt}</p> */}
         {/* increawe and decrease quantity buttons */}
         <div className='flex items-center gap-2'>
-            <button className='bg-blue-500 text-white px-4 py-2 rounded-md' onClick={() => handleUpdateCart(product.id, product.quantity + 1)}>+</button>
+            <button className='bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer' onClick={() => handleUpdateCart(product.id, product.quantity + 1)}>+</button>
             <p className='text-sm text-gray-500'>{product.quantity}</p>
-            <button className='bg-red-500 text-white px-4 py-2 rounded-md' onClick={() => handleUpdateCart(product.id, product.quantity - 1)}>-</button>
-            <button className='bg-red-500 text-white px-4 py-2 rounded-md' onClick={() => handleUpdateCart(product.id, 0)}>Remove from Cart</button>
+            <button className='bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer' onClick={() => handleUpdateCart(product.id, product.quantity - 1)}>-</button>
+            <button className='bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer' onClick={() => handleUpdateCart(product.id, 0)}>Remove from Cart</button>
         </div>
         </div>
     )

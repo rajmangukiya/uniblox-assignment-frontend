@@ -1,9 +1,14 @@
 import { useNavigate } from 'react-router'
 import NavButton from './NavButton'
+import { postAPI } from '../../helper/API/APIData'
 
 const Navbar = () => {
-
     const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        await postAPI('user/logout', {})
+        navigate('/login')
+    }
 
     return (
         <div>
@@ -11,7 +16,7 @@ const Navbar = () => {
                 <NavButton to="/" label="Home" />
                 <NavButton to="/cart" label="Cart" />
                 <NavButton to="/orders" label="Orders" />
-                <NavButton to="/logout" label="Logout" />
+                <button onClick={handleLogout} className='cursor-pointer'>Logout</button>
             </div>
         </div>
     )

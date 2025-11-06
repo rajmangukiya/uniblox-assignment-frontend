@@ -37,11 +37,15 @@ const Home = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-4 gap-4 p-5'>
-                {orders.map((order) => (
-                    <Ordercard key={order.id} order={order} />
-                ))}
-            </div>
+            {
+                orders.length > 0 ? (
+                    <div className='grid grid-cols-4 gap-4 p-5'>
+                        {orders.map((order) => (
+                            <Ordercard key={order.id} order={order} />
+                        ))}
+                    </div>
+                ) : <div className='text-center mt-5 text-2xl font-bold'>No orders found</div>
+            }
         </div>
     )
 }

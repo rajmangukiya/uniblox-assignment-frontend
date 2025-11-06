@@ -10,15 +10,14 @@ const Cart = () => {
         try {
             const response = await getAPI('cart');
             const data = await response.json()
-            console.log(data);
-            setCartProducts(data.cart.products.map((p: any) => ({
+            setCartProducts(data.cart?.products.map((p: any) => ({
                 id: p.product.id,
                 title: p.product.title,
                 description: p.product.description,
                 image: p.product.image,
                 price: p.product.price,
                 quantity: p.quantity,
-            })))
+            })) ?? [])
         } catch (error) {
             window.alert(error as string | null)
         }
@@ -57,16 +56,21 @@ const Cart = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-4 gap-4 p-5'>
-                {cartProducts.map((product) => (
-                    // <ProductCard handleAddToCart={handleAddToCart} key={product.id} product={product} />
-                    <CartProductCard product={product} handleUpdateCart={handleUpdateCart} key={product.id} />
-                ))}
-            </div>
-
-            <div className='flex justify-end p-5'>
-                <button className='bg-blue-500 text-white px-4 py-2 rounded-md' onClick={handleCheckout}>Checkout</button>
-            </div>
+            {
+                cartProducts.length > 0 ? (
+                    <div>
+                        <div className='grid grid-cols-4 gap-4 p-5'>
+                            {cartProducts.map((product) => (
+                                // <ProductCard handleAddToCart={handleAddToCart} key={product.id} product={product} />
+                                <CartProductCard product={product} handleUpdateCart={handleUpdateCart} key={product.id} />
+                            ))}
+                        </div>
+                        <div className='flex justify-start p-5'>
+                            <button className='bg-blue-500 text-white px-4 py-2 rounded-md' onClick={handleCheckout}>Checkout</button>
+                        </div>
+                    </div>
+                ) : <div className='text-center mt-5 text-2xl font-bold'>No products in cart</div>
+            }
         </div>
     )
 }
