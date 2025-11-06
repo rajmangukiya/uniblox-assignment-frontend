@@ -1,0 +1,9 @@
+export type CartProduct = {
+    id: string;
+    title: string;
+    description: string;
+    image: string;
+    price: number;
+    quantity: number;
+    totalPrice: number;
+}
