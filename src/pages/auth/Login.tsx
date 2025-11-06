@@ -28,7 +28,7 @@ const Login = () => {
       if (response.status === 200) {
         navigate('/')
       } else {
-        window.alert(data.error)
+        window.alert(data.error || data.message)
       }
     } catch (error) {
       window.alert(error)
@@ -56,12 +56,12 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+              className="group cursor-pointer relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
             >
               Login
             </button>
           </div>
-          <div> <Link to="/register">Register</Link> </div>
+          <div className='text-center text-sm text-gray-500'> Don't have an account? <Link to="/register" className='text-indigo-600 hover:text-indigo-700'>Register</Link> </div>
         </form>
       </div>
     </div>

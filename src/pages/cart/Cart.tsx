@@ -79,7 +79,7 @@ const Cart = () => {
         <div>
             <div className='pl-5'>
                 <div className='grid grid-cols-4 gap-4 p-5'>
-                    {cartProducts.map((product) => (
+                    {cartProducts.length > 0 && cartProducts.map((product) => (
                         // <ProductCard handleAddToCart={handleAddToCart} key={product.id} product={product} />
                         <CartProductCard product={product} handleUpdateCart={handleUpdateCart} key={product.id} />
                     ))}

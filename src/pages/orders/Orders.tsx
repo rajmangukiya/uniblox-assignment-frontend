@@ -39,10 +39,10 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <div className='w-full'>
             {
                 orders.length > 0 ? (
-                    <div className='grid grid-cols-4 gap-4 p-5'>
+                    <div className='p-5 w-full'>
                         {orders.map((order) => (
                             <Ordercard key={order.id} order={order} />
                         ))}
